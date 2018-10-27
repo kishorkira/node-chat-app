@@ -16,6 +16,15 @@ io.on('connection',(socket)=>{
     socket.on('disconnect',()=>{
         console.log('User was disconnected.');
     });
+  
+    socket.on('createMessage',(message)=>{
+        console.log('message',message);
+    });
+    socket.emit('newMessage',{
+        from:'dfsdfdfs',
+        text:'dfhsdhf dhgfhsg',
+        createdAt:457
+    });
 });
 
 // app.get('/',(req,res)=>{
