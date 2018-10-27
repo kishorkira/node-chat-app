@@ -19,12 +19,13 @@ io.on('connection',(socket)=>{
   
     socket.on('createMessage',(message)=>{
         console.log('message',message);
+        io.emit('newMessage',{
+            from:message.from,
+            text:message.text,
+            createdAt:new Date().getTime()
+        });
     });
-    socket.emit('newMessage',{
-        from:'dfsdfdfs',
-        text:'dfhsdhf dhgfhsg',
-        createdAt:457
-    });
+  
 });
 
 // app.get('/',(req,res)=>{
